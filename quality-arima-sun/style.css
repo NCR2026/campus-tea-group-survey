@@ -3,4 +3,21 @@
 @media(max-width:1100px){#chapters button{font-size:10px;padding:8px 6px}.brand{font-size:14px}.brand small{font-size:8px}.topbar{gap:12px;padding:0 25px}.lab-layout{grid-template-columns:minmax(0,1fr) 240px;gap:18px}.lab-count{font-size:44px}.history-layout{grid-template-columns:minmax(0,1fr) 180px}.hero-stats{gap:20px}.hero h1{max-width:620px}.top-actions #sources{display:none}}
 @media(max-width:760px){body{overflow:auto}.topbar{height:65px}#stage{height:auto;min-height:100dvh;padding-top:65px}#chapters{display:none}.slide{height:auto;min-height:calc(100dvh - 65px);padding:28px 22px 110px}.hero{min-height:calc(100dvh - 65px)}.hero h1{font-size:39px}.hero-stats{position:static;margin-top:40px}.hero .source{bottom:85px;left:22px;font-size:9px}.split,.takeaways,.comparison{grid-template-columns:1fr;gap:28px}.question-art{min-height:230px}.metrics-row{gap:15px}.metric strong{font-size:40px}.metric p{font-size:12px}.data-foot{flex-direction:column;gap:20px}.lab-layout{grid-template-columns:1fr;height:auto}.model-wrap{height:340px}.lab-panel{overflow:visible}.lab-panel .record-detail{min-height:0}.history-layout{grid-template-columns:1fr}.history-insight{display:none}.chart-shell{min-height:330px;padding:15px}.chart-toolbar{flex-wrap:wrap}.method-steps{grid-template-columns:1fr;gap:22px}.method-steps b{float:left;margin-right:20px}.method-band{height:auto}.train,.test{padding:15px}.method-band strong{font-size:27px}.method-band span{display:block;margin:8px 0 0}.forecast-layout{min-height:500px}.forecast-result{min-width:0}.transport{gap:5px;bottom:12px;padding:6px 8px;max-width:96vw}.transport .key-hint,.transport .divider,#restart{display:none}.comparison .chart-shell{height:350px}.detail-grid{grid-template-columns:1fr}.dialog-chart{height:37vh;min-height:250px}dialog{padding:20px}.dialog-head h2{font-size:21px}.top-actions button{padding:8px}.content{flex:auto}body:fullscreen.controls-visible .slide{padding-top:80px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-.lab-panel{min-width:0;overflow-x:hidden;gap:9px}.lab-panel select{min-width:0;width:100%;max-width:100%;font-size:12px;padding:5px}.lab-panel button{padding:7px 12px}.record-detail{min-height:70px;padding-top:9px;line-height:1.6}.lab-count{font-size:47px}.lab-equation{margin-top:6px}.lab-panel .mini{font-size:11px}body:fullscreen.controls-visible .slide{padding-top:4vh}
+.lab-panel{min-width:0;overflow-x:hidden;gap:9px}.lab-panel select{min-width:0;width:100%;max-width:100%;font-size:12px;padding:5px}.lab-panel button{padding:7px 12px}.record-detail{min-height:70px;padding-top:9px;line-height:1.6}.lab-count{font-size:47px}.lab-equation{margin-top:6px}.lab-panel .mini{font-size:11px}
+/* Paint the fullscreen element itself: the root background is outside its top layer. */
+body{background:var(--ice);color:var(--navy);min-height:100dvh}
+.slide:not(.hero){background:var(--ice)}
+body:fullscreen{background:var(--ice);width:100%;height:100%;overflow:hidden}
+body:fullscreen::backdrop{background:var(--ice)}
+body:fullscreen #stage{height:100%;padding-top:82px}
+body:fullscreen .slide,body:fullscreen.controls-visible .slide{padding-top:24px;padding-bottom:90px}
+body:fullscreen .topbar{top:12px;left:18px;right:18px;height:60px;border:1px solid #ffffff80;border-radius:12px;background:#f2f6f7e6;box-shadow:0 4px 25px #0b223310}
+body:fullscreen .transport{bottom:18px}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hero .video-launch{padding:14px 20px;color:#fff;background:#ffffff12;border-color:#ffffff70}
+.hero .video-launch:hover{background:#ffffff26}
+.explainer-video{display:block;width:100%;max-height:68dvh;background:#0b2233;border-radius:6px}
+.video-caption{font-size:14px;line-height:1.8;color:var(--muted);margin-top:14px}
+@media(max-width:760px){body:fullscreen{overflow:auto}body:fullscreen #stage{height:auto;min-height:100%;padding-top:82px}body:fullscreen .topbar{left:8px;right:8px}.hero-actions{gap:9px}.hero .video-launch{font-size:13px}.explainer-video{max-height:60dvh}}
+
+.download-row button{padding:10px 16px;background:var(--teal);color:#fff;border:0;font-size:13px;border-radius:5px}
