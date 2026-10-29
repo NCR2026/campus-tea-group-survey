@@ -1,0 +1,16 @@
+﻿孙德鑫质量管理分析 安装与复现说明
+适用：Windows 10/11，64位。观看网页、PPT和MP4不需要安装Python。
+1. 先把整个提交包全部解压，保留目录关系。
+2. 双击06_安装文件/python-3.12.10-amd64.exe，选择Install Now，完成后Close。
+3. 双击06_安装文件/安装分析环境.cmd，等待SUCCESS。此步骤从wheels离线安装依赖，在提交包根目录创建.venv。
+4. 双击02_导入文件/运行分析.cmd。新结果位于03_导出文件/重新运行结果。
+5. 若失败，查看03_导出文件/运行日志.txt。不要单独移动run_analysis.py或.venv。
+
+程序直接读取01_原始数据/secom_labels.data，不依赖本机原工作目录。新结果不会覆盖随包的原结果。
+安装脚本只为本作业创建独立环境，不要求全局修改系统执行策略。
+Python官方发布页：https://www.python.org/downloads/release/python-31210/
+官方安装程序：https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe
+本次从华为云Python镜像取得安装文件，与官方公布MD5一致：5eddb0b6f12c852725de071ae681dde4。
+Windows Authenticode数字签名有效，签名者为Python Software Foundation。未改动安装文件。
+镜像来源：https://repo.huaweicloud.com/python/3.12.10/python-3.12.10-amd64.exe
+Python属于分析软件，PowerPoint/WPS和浏览器仅用于查看汇报。本包不提供商业办公软件安装程序。

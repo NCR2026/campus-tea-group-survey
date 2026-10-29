@@ -21,3 +21,6 @@ body:fullscreen .transport{bottom:18px}
 @media(max-width:760px){body:fullscreen{overflow:auto}body:fullscreen #stage{height:auto;min-height:100%;padding-top:82px}body:fullscreen .topbar{left:8px;right:8px}.hero-actions{gap:9px}.hero .video-launch{font-size:13px}.explainer-video{max-height:60dvh}}
 
 .download-row button{padding:10px 16px;background:var(--teal);color:#fff;border:0;font-size:13px;border-radius:5px}
+
+/* Submission materials */
+.materials-tabs{display:flex;gap:8px;flex-wrap:wrap;padding:4px 0 20px;border-bottom:1px solid #dce4e8}.materials-content{padding-top:10px}.materials-content li{margin:14px 0;line-height:1.7}.raw-preview{background:#edf4f6;color:#0b2233;padding:22px;line-height:1.8;font-size:20px;white-space:pre-wrap}.file-link{display:inline-block;padding:10px 14px;margin:5px 8px 5px 0;background:#e4f1f0;color:#126c69;border-radius:5px}.materials-content .explainer-video{max-height:48vh}.top-actions{flex-shrink:0}
