@@ -1,19 +1,569 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#eff3f1"><title>创新解构 · 比亚迪创新管理交互演示</title><meta name="description" content="旋转、拆解与探索电池、混动系统和创新管理流程。比亚迪创新管理案例课堂交互演示。"><link rel="stylesheet" href="style.css?v=5"></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#102B38">
+<title>比亚迪公司创新管理案例分析 · 完整网站汇报</title>
+<meta name="description" content="比亚迪公司创新管理案例分析：18页完整网站汇报，含刀片电池、第五代DM等6个可交互三维场景。12—15分钟课堂汇报。">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23102B38'/%3E%3Cpath d='M16 6l8 10-8 10-8-10z' fill='%23087F8C'/%3E%3C/svg%3E">
+<script>
+  window.addEventListener('error', e => {
+    document.documentElement.dataset.error =
+      (e.message || 'error') + ' @ ' + (e.filename || '').split('/').pop() + ':' + (e.lineno || '');
+    console.error('[atlas]', e.message, e.filename, e.lineno);
+  });
+</script>
+</head>
 <body>
-<header class="topbar"><a class="brand" href="#battery"><span class="brand-mark">◈</span><span>创新解构<small>BYD · INNOVATION ATLAS</small></span></a><nav id="scenes" aria-label="演示场景"></nav><button id="sources" class="quiet">资料与说明 ↗</button><button id="fullscreen" class="square" aria-label="进入全屏" title="全屏演示">⛶</button></header>
-<main>
- <div class="scene-heading"><div><p class="eyebrow" id="chapter"></p><h1 id="scene-title"></h1></div><p id="scene-subtitle"></p></div>
- <div class="workspace">
-  <aside class="parts panel"><div class="panel-title"><h2 id="parts-title">模型分层</h2><span id="part-count"></span></div><p class="muted small">点击名称查看 · 开关控制显示</p><div id="part-list"></div><div class="part-actions"><button id="show-all">全部显示</button><button id="isolate">单独查看</button></div><section id="modes-wrap"><h3>演示模式</h3><div id="modes"></div></section><div class="left-note"><span class="status-dot"></span><span id="model-type">三维结构示意</span></div></aside>
-  <section class="viewport" aria-label="三维交互模型"><div id="canvas-wrap"></div><div id="labels" aria-hidden="true"></div><div id="loading">正在构建交互模型…</div><div id="hover" hidden></div><div class="view-tools"><button data-view="iso" title="立体视角">立体</button><button data-view="top" title="俯视">俯视</button><button data-view="front" title="正视">正视</button><button id="rotate" title="自动旋转" aria-pressed="false">旋转</button><button id="reset" title="重置视图">↺</button></div><div class="canvas-hint">拖动旋转 <span>·</span> 滚轮缩放 <span>·</span> 点击查看</div>
-   <div class="transport glass"><button id="play" class="play" aria-label="播放演示">▶</button><div class="slider-wrap"><div class="slider-label"><label for="explode" id="slider-title">结构拆解</label><output id="explode-value">35%</output></div><input type="range" id="explode" min="0" max="100" value="35" aria-label="结构拆解程度"><div class="slider-ends"><span id="slider-min">整体装配</span><span id="slider-max">分层展开</span></div></div><button id="previous" title="上一步">‹</button><button id="next" title="下一步">›</button></div>
-  </section>
-  <aside class="inspector panel"><div class="eyebrow">探索笔记 <span id="selected-number"></span></div><h2 id="detail-title"></h2><p id="detail-body"></p><div class="detail-block"><h3 id="detail-label">管理观察</h3><p id="detail-insight"></p></div><div class="detail-question"><span>讲解时想一想</span><p id="detail-question"></p></div><div class="stepper"><span id="step-counter"></span><button id="guided">按步骤讲解 →</button></div><p id="detail-source" class="source-note"></p></aside>
- </div>
- <footer class="page-foot"><span>比亚迪公司创新管理案例分析</span><span id="scene-position"></span><span>结构示意 / 管理分析 · 2023—2025年度资料</span></footer>
-</main>
-<dialog id="source-dialog"><button id="close-dialog" aria-label="关闭说明" class="close">×</button><p class="eyebrow">阅读与使用</p><h2>模型、资料与课堂演示</h2><p>模型采用简化几何结构表达部件关系。点击各部件，结合右侧的管理观察，从技术结构讲到组织协同。</p><h3>操作方式</h3><p>鼠标拖动旋转，滚轮缩放；点击部件或左侧名称查看解读；拖动滑杆拆解模型；播放按钮演示拆解或流程。全屏模式下，浮动控制在鼠标移动时显示。</p><p>快捷键：1—6 切换场景，← → 分步讲解，空格播放/暂停，R重置。Esc退出全屏或关闭说明。</p><h3>资料来源</h3><ol><li><a href="https://www.hkexnews.hk/listedco/listconews/sehk/2026/0327/2026032702970_c.pdf" target="_blank" rel="noopener">比亚迪2025年年度报告</a>：研发投入、利润、现金流与组织信息。</li><li><a href="https://www.hkexnews.hk/listedco/listconews/sehk/2025/0324/2025032401238.pdf" target="_blank" rel="noopener">比亚迪2024年年度报告</a>：年度比较数据。</li><li><a href="https://disc.static.szse.cn/download/disc/disk03/finalpage/2022-03-30/18397d70-ef70-44c7-8bbc-720aa8668fb3.PDF" target="_blank" rel="noopener">比亚迪2021年社会责任报告</a>：刀片电池案例。</li><li><a href="https://byd.co.jp/e-life/news/2024_0604_1.html" target="_blank" rel="noopener">第五代DM官方发布</a>：混动系统案例；46.06%为企业发布的发动机热效率。</li><li><a href="https://www.samr.gov.cn/zlfzj/qxcpzh/zhdt/art/2024/art_66659bb502f2417abf8dcf84e29e9780.html" target="_blank" rel="noopener">市场监管总局2024年9月召回公告</a>：电动助力转向控制器制造问题，合计96,714辆。</li></ol><h3>模型说明</h3><p>电池、动力系统的部件数量、尺寸和位置为教学表达；能量流展示典型混动工作原理。组织、流程及评价场景按案例分析整理。具体数据保留集团口径，详细分析见配套书面报告。</p><p class="muted">资料核查：2026年10月25日 · 三维渲染：Three.js（MIT） · 无声音</p></dialog>
-<script type="module" src="app.js?v=5"></script>
-</body></html>
+
+<div id="deck">
+  <header id="chrome">
+    <a class="brand" href="#/1" aria-label="回到封面">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">创新解构<small>BYD · INNOVATION ATLAS</small></span>
+    </a>
+    <nav id="partnav" aria-label="章节导航">
+      <button data-part-nav="p1"><b>01</b>导入</button>
+      <button data-part-nav="p2"><b>02</b>体系</button>
+      <button data-part-nav="p3"><b>03</b>案例</button>
+      <button data-part-nav="p4"><b>04</b>机制</button>
+      <button data-part-nav="p5"><b>05</b>工具与结论</button>
+    </nav>
+    <div class="hud">
+      <span id="hud-part">导入</span>
+      <span class="hud-sep">/</span>
+      <span id="hud-part-en">ORIENT</span>
+      <span class="hud-page"><b id="hud-index">01</b><i>/</i><span id="hud-total">18</span></span>
+    </div>
+    <div class="tools">
+      <button id="btn-notes" aria-expanded="false"><span>讲稿</span><kbd>N</kbd></button>
+      <button id="btn-toc" aria-expanded="false"><span>目录</span><kbd>O</kbd></button>
+      <button id="btn-full" aria-pressed="false"><span>全屏</span><kbd>F</kbd></button>
+      <button id="btn-help" aria-label="快捷键说明">?</button>
+    </div>
+  </header>
+
+  <main id="stage">
+
+    <!-- 01 封面 -->
+    <section class="slide slide--cover" data-part="p1" data-page="1" aria-label="封面">
+      <div class="cover-bg"><img src="img/cover.jpg" alt="电动轿车底盘与电池结构概念插图"></div>
+      <div class="cover-grid">
+        <p class="kicker kicker--light" data-anim><span class="kicker-line"></span>创新管理 · 企业案例研究</p>
+        <h1 class="cover-title" data-anim>比亚迪公司<br><em>创新管理案例分析</em></h1>
+        <p class="cover-sub" data-anim>从技术积累到经营价值</p>
+        <div class="cover-meta" data-anim>
+          <div><span>年级</span><b>______</b></div>
+          <div><span>班级</span><b>______</b></div>
+          <div><span>小组</span><b>砺行</b></div>
+          <div><span>汇报</span><b>12—15 分钟</b></div>
+          <div><span>数据</span><b>2023—2025 完整年度</b></div>
+        </div>
+        <p class="cover-foot" data-anim><span>概念插图 / AI生成</span><span>18 页 · 手动翻页 · 页内自动展开</span></p>
+      </div>
+      <div class="cover-badge" data-anim><b>18</b><span>页完整汇报<br>6 个三维场景</span></div>
+    </section>
+
+    <!-- 02 研究问题 -->
+    <section class="slide" data-part="p1" data-page="2" aria-label="研究问题">
+      <div class="q-grid">
+        <div class="q-left">
+          <p class="kicker" data-anim><span class="kicker-line"></span>研究起点 / 2025年同比</p>
+          <h2 class="q-title" data-anim>技术积累怎样变成<br>持续的经营价值？</h2>
+          <p class="lede" data-anim>研发投入继续增长，归母净利润下降。转化过程比投入规模更值得追问。</p>
+          <div class="stat-pair">
+            <article class="stat stat--up" data-anim>
+              <p class="stat-label">研发投入</p>
+              <p class="stat-delta">+17.13<span>%</span></p>
+              <p class="stat-flow">541.61 <i>→</i> 634.41 <em>亿元</em></p>
+            </article>
+            <article class="stat stat--down" data-anim>
+              <p class="stat-label">归母净利润</p>
+              <p class="stat-delta">−18.97<span>%</span></p>
+              <p class="stat-flow">402.54 <i>→</i> 326.19 <em>亿元</em></p>
+            </article>
+          </div>
+          <p class="src" data-anim>同一年 · 2025完整年度 · 来源：[1] 2025年年报</p>
+        </div>
+        <figure class="q-figure" data-anim>
+          <img src="img/factory.jpg" alt="汽车制造车间概念插图">
+          <figcaption><span>制造场景</span>概念插图 / AI生成</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 分析框架 -->
+    <section class="slide" data-part="p1" data-page="3" aria-label="分析框架">
+      <header class="slide-head">
+        <p class="kicker" data-anim><span class="kicker-line"></span>研究框架 / 按课程作业结构展开</p>
+        <h2 class="slide-title" data-anim>分析框架</h2>
+        <p class="lede" data-anim>从企业背景走向管理启示：公司、体系、政策、工具、启示五层展开。</p>
+      </header>
+      <div class="frame">
+        <ol class="frame-list">
+          <li data-anim>
+            <span class="frame-no">01</span>
+            <h3>公司背景</h3>
+            <p>业务布局<br>研发投入</p>
+            <em>企业靠什么积累能力？</em>
+          </li>
+          <li data-anim>
+            <span class="frame-no">02</span>
+            <h3>管理体系</h3>
+            <p>战略与组织<br>创新过程</p>
+            <em>组织怎样承接投入？</em>
+          </li>
+          <li data-anim>
+            <span class="frame-no">03</span>
+            <h3>政策机制</h3>
+            <p>合作与激励<br>风险治理</p>
+            <em>机制如何影响行为？</em>
+          </li>
+          <li data-anim>
+            <span class="frame-no">04</span>
+            <h3>方法工具</h3>
+            <p>系统创新<br>项目评价</p>
+            <em>用什么工具做决策？</em>
+          </li>
+          <li data-anim>
+            <span class="frame-no">05</span>
+            <h3>经验启示</h3>
+            <p>能力积累<br>协同与改进</p>
+            <em>哪些经验可以迁移？</em>
+          </li>
+        </ol>
+      </div>
+      <div class="frame-note" data-anim>
+        <div><span>经营观察</span><b>2023—2025 年</b></div>
+        <div><span>技术案例</span><b>刀片电池 · 第五代DM</b></div>
+        <div><span>口径</span><b>集团完整年度 / 新能源汽车技术案例</b></div>
+      </div>
+    </section>
+
+    <!-- 04 研发投入 -->
+    <section class="slide" data-part="p2" data-page="4" aria-label="研发投入">
+      <header class="slide-head">
+        <p class="kicker" data-anim><span class="kicker-line"></span>体系 / 创新战略</p>
+        <h2 class="slide-title" data-anim>持续研发投入与能力建设</h2>
+        <p class="lede" data-anim>投入只是条件，组织承接才决定资源能否变成能力。</p>
+      </header>
+      <div class="split split--data">
+        <div class="chart-card" data-anim>
+          <div class="chart-head"><h3>研发投入 / 亿元</h3><p>柱形自零起 · 百分比为研发强度</p></div>
+          <svg class="bar-chart" viewBox="0 0 640 440" role="img" aria-label="2023至2025年研发投入：399.18、541.61、634.41亿元">
+            <g class="grid">
+              <line x1="104" y1="50" x2="616" y2="50"></line>
+              <line x1="104" y1="215" x2="616" y2="215"></line>
+              <line x1="104" y1="380" x2="616" y2="380" class="base"></line>
+            </g>
+            <g class="axis">
+              <text x="94" y="55" text-anchor="end">700</text>
+              <text x="94" y="220" text-anchor="end">350</text>
+              <text x="94" y="385" text-anchor="end">0</text>
+            </g>
+            <g class="bar-group">
+              <rect class="bar bar-1" x="120" y="192" width="96" height="188" style="--d:.35s"></rect>
+              <text class="val" x="168" y="180">399.18</text>
+              <text class="year" x="168" y="404">2023</text>
+              <text class="rate" x="168" y="424">强度 6.63%</text>
+            </g>
+            <g class="bar-group">
+              <rect class="bar bar-2" x="310" y="125" width="96" height="255" style="--d:.5s"></rect>
+              <text class="val" x="358" y="113">541.61</text>
+              <text class="year" x="358" y="404">2024</text>
+              <text class="rate" x="358" y="424">强度 6.97%</text>
+            </g>
+            <g class="bar-group">
+              <rect class="bar bar-3" x="500" y="81" width="96" height="299" style="--d:.65s"></rect>
+              <text class="val" x="548" y="69">634.41</text>
+              <text class="year" x="548" y="404">2025</text>
+              <text class="rate" x="548" y="424">强度 7.89%</text>
+            </g>
+          </svg>
+          <p class="chart-foot">纵轴：0 — 700 亿元 · 2023年研发强度为计算值</p>
+        </div>
+        <div class="steps-card">
+          <h3 data-anim>资源转化的三个环节</h3>
+          <ol class="num-list">
+            <li data-anim><b>01</b><div><h4>识别关键技术问题</h4><p>研发是否投向真正影响用户价值的问题</p></div></li>
+            <li data-anim><b>02</b><div><h4>开展跨部门共同验证</h4><p>设计、工艺、制造是否使用同一套证据</p></div></li>
+            <li data-anim><b>03</b><div><h4>形成稳定量产能力</h4><p>方案能否被重复、稳定地生产出来</p></div></li>
+          </ol>
+          <div class="insight-block" data-anim>
+            <span>判断</span>
+            <p>同一笔投入，可能变成专利、产能，也可能变成库存。差别在于组织能否把资源转化为可复用的能力。</p>
+          </div>
+          <div class="highlight" data-anim><span>研发强度</span><b>7.89%</b><em>2025 年 · 三年持续提高</em></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 组织协同（三维） -->
+    <section class="slide" data-part="p2" data-page="5" aria-label="创新组织">
+      <div class="scene-layout">
+        <div class="scene-rail">
+          <p class="kicker" data-anim><span class="kicker-line"></span>体系 / 创新组织</p>
+          <h2 class="slide-title slide-title--sm" data-anim>围绕整车目标<br>组织跨专业协同</h2>
+          <p class="lede" data-anim>协同发生在接口上：接口标准、共同验证与问题关闭。</p>
+          <ul class="tag-row" data-anim>
+            <li>接口标准</li><li>共同验证</li><li>问题关闭</li>
+          </ul>
+          <p class="rail-note" data-anim>各团队围绕同一整车目标交换接口要求、验证结论与问题记录。协同能力，就体现在这些往返里。</p>
+          <div class="explore" data-scene="organization"></div>
+        </div>
+        <div class="scene-slot" data-scene="organization"></div>
+      </div>
+    </section>
+
+    <!-- 06 创新过程（三维） -->
+    <section class="slide" data-part="p2" data-page="6" aria-label="创新过程">
+      <div class="scene-layout scene-layout--flip">
+        <div class="scene-rail">
+          <p class="kicker" data-anim><span class="kicker-line"></span>体系 / 创新过程</p>
+          <h2 class="slide-title slide-title--sm" data-anim>从需求到量产，<br>再回到下一轮研发</h2>
+          <p class="lede" data-anim>开发速度、验证质量与量产稳定性必须一起接受检查。</p>
+          <ul class="tag-row" data-anim><li>需求</li><li>开发</li><li>验证</li><li>量产</li><li>反馈</li></ul>
+          <p class="rail-note" data-anim>五个环节不是一次性的串行审批，而是带反馈的循环：上市后的失效信息，会改写下一轮的需求与验证条件。</p>
+          <div class="explore" data-scene="process"></div>
+        </div>
+        <div class="scene-slot" data-scene="process"></div>
+      </div>
+    </section>
+
+    <!-- 07 刀片电池（三维·深色） -->
+    <section class="slide slide--dark" data-part="p3" data-page="7" aria-label="刀片电池">
+      <div class="scene-layout">
+        <div class="scene-rail">
+          <p class="kicker" data-anim><span class="kicker-line"></span>案例一 / 2020年发布的刀片电池</p>
+          <h2 class="slide-title slide-title--sm" data-anim>刀片电池：<br>结构变化带动协作变化</h2>
+          <p class="lede" data-anim>长条形电芯改变的不只是形状，还有连接方式、制造条件与验证边界。</p>
+          <div class="layer-tags" data-anim>
+            <div><b>01</b><span>电芯形态</span><em>长条形电芯，重新组织空间</em></div>
+            <div><b>02</b><span>电池包架构</span><em>结构、制造与验证共同调整</em></div>
+            <div><b>03</b><span>整车应用</span><em>把结构变化转化为使用价值</em></div>
+          </div>
+          <div class="explore" data-scene="battery"></div>
+        </div>
+        <div class="scene-slot" data-scene="battery"></div>
+      </div>
+    </section>
+
+    <!-- 08 第五代DM（三维） -->
+    <section class="slide" data-part="p3" data-page="8" aria-label="第五代DM">
+      <div class="scene-layout scene-layout--flip">
+        <div class="scene-rail">
+          <p class="kicker" data-anim><span class="kicker-line"></span>案例二 / 2024年第五代DM技术</p>
+          <h2 class="slide-title slide-title--sm" data-anim>整车效率来自<br>多个系统的共同优化</h2>
+          <div class="hero-stat" data-anim>
+            <b>46.06<i>%</i></b>
+            <span>企业发布的发动机热效率</span>
+            <em>首批应用车型：秦L DM-i · 海豹06 DM-i</em>
+          </div>
+          <div class="explore" data-scene="hybrid"></div>
+        </div>
+        <div class="scene-slot" data-scene="hybrid"></div>
+      </div>
+    </section>
+
+    <!-- 09 双案例比较 -->
+    <section class="slide" data-part="p3" data-page="9" aria-label="双案例比较">
+      <header class="slide-head">
+        <p class="kicker" data-anim><span class="kicker-line"></span>案例比较 / 从技术走向管理</p>
+        <h2 class="slide-title" data-anim>双案例比较：技术变化与组织要求</h2>
+        <p class="lede" data-anim>两个案例技术重点不同，但都把问题指向接口管理。</p>
+      </header>
+      <div class="compare" data-anim>
+        <table class="cmp">
+          <thead>
+            <tr><th>分析维度</th><th>刀片电池</th><th>第五代DM</th><th>共同的管理含义</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>创新焦点</th><td>电芯形态与电池包结构</td><td>动力与能量管理协同</td><td>系统级的重新配置</td></tr>
+            <tr><th>组织要求</th><td>研发、制造、整车共同调整</td><td>多专业围绕整车目标权衡</td><td>接口需要共同语言</td></tr>
+            <tr><th>验证边界</th><td>结构变化后重查制造与安全</td><td>覆盖不同工况与车型适配</td><td>复用要检查适用条件</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" data-anim>
+        <span>管理价值</span>
+        <p>让部件改进真正转化为整车价值：跨车型复用可以分摊投入，同时需要检查尺寸、工况和版本变化。</p>
+      </div>
+    </section>
+
+    <!-- 10 开放合作 -->
+    <section class="slide" data-part="p4" data-page="10" aria-label="开放合作">
+      <div class="split split--partner">
+        <figure class="partner-figure" data-anim>
+          <img src="img/bz3.jpg" alt="丰田 bZ3 官方发布照片">
+          <figcaption><span>bZ3 · 2022年10月发布</span>文字与照片来源：[7] 丰田官方发布</figcaption>
+        </figure>
+        <div class="partner-body">
+          <p class="kicker" data-anim><span class="kicker-line"></span>机制 / 开放合作</p>
+          <h2 class="slide-title slide-title--sm" data-anim>bZ3：把各自的能力<br>组合成共同产品</h2>
+          <div class="maker" data-anim>
+            <div class="maker-node"><span>能力 A</span><b>比亚迪电池技术</b></div>
+            <div class="maker-op">+</div>
+            <div class="maker-node"><span>能力 B</span><b>丰田车辆开发经验</b></div>
+            <div class="maker-op">→</div>
+            <div class="maker-out"><span>共同产品</span><b>bZ3</b><em>比亚迪丰田电动车科技 与 一汽丰田共同开发</em></div>
+          </div>
+          <div class="boundary" data-anim>
+            <p class="boundary-title">合作管理的三个边界 <em>分析建议</em></p>
+            <ul>
+              <li><b>接口文档</b><span>谁定义、谁确认</span></li>
+              <li><b>验证责任</b><span>谁验证、如何共享</span></li>
+              <li><b>成果归属</b><span>知识产权与复用条件</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 人才与激励 -->
+    <section class="slide" data-part="p4" data-page="11" aria-label="人才与激励">
+      <div class="split split--people">
+        <div class="people-body">
+          <p class="kicker" data-anim><span class="kicker-line"></span>机制 / 人才与激励</p>
+          <h2 class="slide-title slide-title--sm" data-anim>让技术贡献与团队协作<br>获得长期回报</h2>
+          <div class="bigfig-row">
+            <div class="bigfig" data-anim><b>127,665</b><span>2025 年研发人员 / 人</span></div>
+            <div class="bigfig" data-anim><b>21,417</b><span>2025 年员工持股计划实际参与 / 人</span></div>
+          </div>
+          <p class="note" data-anim>两类统计人群不同：持股计划覆盖员工整体，不能据此计算研发人员持股覆盖率。</p>
+          <div class="focus" data-anim>
+            <p>评价重点</p>
+            <ul><li>关键技术贡献</li><li>跨团队结果</li><li>及时发现并解决问题</li></ul>
+            <em>探索失败与违反标准的执行失误需要区分。</em>
+          </div>
+        </div>
+        <figure class="people-figure" data-anim>
+          <img src="img/team.jpg" alt="工程团队协作概念插图">
+          <figcaption><span>工程协作</span>概念插图 / AI生成</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 12 经营约束（三维） -->
+    <section class="slide" data-part="p4" data-page="12" aria-label="经营约束">
+      <div class="scene-layout">
+        <div class="scene-rail">
+          <p class="kicker" data-anim><span class="kicker-line"></span>政策 / 经营约束</p>
+          <h2 class="slide-title slide-title--sm" data-anim>利润与现金流<br>构成创新的经营约束</h2>
+          <ul class="delta-list" data-anim>
+            <li><span>研发投入</span><b class="up">+17.13%</b><em>541.61 → 634.41</em></li>
+            <li><span>归母净利润</span><b class="down">−18.97%</b><em>402.54 → 326.19</em></li>
+            <li><span>经营现金流</span><b class="down">−55.69%</b><em>1,334.54 → 591.36</em></li>
+          </ul>
+          <p class="note" data-anim>金额单位：亿元 · 2025年年报 · 切换右侧指标查看三年数据</p>
+          <div class="explore" data-scene="value"></div>
+        </div>
+        <div class="scene-slot" data-scene="value"></div>
+      </div>
+    </section>
+
+    <!-- 13 制造质量（三维） -->
+    <section class="slide" data-part="p4" data-page="13" aria-label="制造质量">
+      <div class="scene-layout scene-layout--flip">
+        <div class="scene-rail">
+          <p class="kicker" data-anim><span class="kicker-line"></span>风险 / 制造质量</p>
+          <h2 class="slide-title slide-title--sm" data-anim>一处制造细节，<br>可能沿使用链条传递</h2>
+          <div class="recall" data-anim>
+            <b>96,714<em>辆</em></b>
+            <span>2024年9月公告召回合计</span>
+            <small>87,762 + 8,952 辆 · 涉及电动助力转向控制器</small>
+          </div>
+          <p class="note" data-anim>设计正确不能替代制造过程控制。</p>
+          <p class="rail-note" data-anim>从制造接触，到元件微裂纹，再到使用中的短路与过热风险；每个环节都需要留下可追溯的记录。</p>
+          <div class="explore" data-scene="quality"></div>
+        </div>
+        <div class="scene-slot" data-scene="quality"></div>
+      </div>
+    </section>
+
+    <!-- 14 工具映射 -->
+    <section class="slide" data-part="p5" data-page="14" aria-label="管理工具">
+      <header class="slide-head">
+        <p class="kicker" data-anim><span class="kicker-line"></span>方法与工具 / 改进建议</p>
+        <h2 class="slide-title" data-anim>从具体问题选择管理工具</h2>
+        <p class="lede" data-anim>工具从问题出发，而不是从清单出发。</p>
+      </header>
+      <div class="tools-grid">
+        <div class="tools-head" data-anim><span>要解决的问题</span><span>管理工具</span><span>形成的决策依据</span></div>
+        <div class="tool-row" data-anim><b>01</b><p>技术方向与需求脱节</p><i>→</i><h3>技术路线图</h3><i>→</i><p>需求与能力缺口</p></div>
+        <div class="tool-row" data-anim><b>02</b><p>资源承诺早于验证</p><i>→</i><h3>阶段评审</h3><i>→</i><p>推进、补试或停止</p></div>
+        <div class="tool-row" data-anim><b>03</b><p>风险停留在笼统描述</p><i>→</i><h3>FMEA 失效分析</h3><i>→</i><p>失效路径与控制证据</p></div>
+        <div class="tool-row" data-anim><b>04</b><p>复用时丢失适用条件</p><i>→</i><h3>知识库与版本追溯</h3><i>→</i><p>场景、版本及变更记录</p></div>
+      </div>
+      <p class="note" data-anim>四项工具可以组成相互连接的改进方案：路线图明确方向，评审安排资源，失效分析识别风险，追溯系统积累经验。以上为基于案例提出的建议，不代表企业已实施制度。</p>
+    </section>
+
+    <!-- 15 评价框架 -->
+    <section class="slide" data-part="p5" data-page="15" aria-label="绩效评价">
+      <header class="slide-head">
+        <p class="kicker" data-anim><span class="kicker-line"></span>方法与工具 / 绩效评价建议</p>
+        <h2 class="slide-title" data-anim>把投入、过程和结果连成评价闭环</h2>
+        <p class="lede" data-anim>项目与平台的生命周期评价：投入、过程、结果、风险四个面。</p>
+      </header>
+      <div class="cycle">
+        <div class="cycle-item" data-anim><span>01 投入</span><h3>研发资源与能力缺口</h3><p>资源是否投向关键问题</p></div>
+        <div class="cycle-item" data-anim><span>02 过程</span><h3>验证完整性与问题关闭</h3><p>关键决策是否有充分证据</p></div>
+        <div class="cycle-item" data-anim><span>03 结果</span><h3>用户价值与实际收益</h3><p>技术应用带来哪些改善</p></div>
+        <div class="cycle-item" data-anim><span>04 风险</span><h3>缺陷复发与复用条件</h3><p>经验能否减少重复失效</p></div>
+        <div class="cycle-loop" data-anim><i></i><span>先建立历史基线，再确定目标和权重</span></div>
+      </div>
+      <div class="callout callout--warn" data-anim>
+        <span>口径提醒</span>
+        <p>研发资本化比例：2024年 1.78% → 2025年 8.61%。这会影响费用确认的时间分布，评价时结合项目阶段、预期收益及后续摊销。</p>
+      </div>
+    </section>
+
+    <!-- 16 实施路线 -->
+    <section class="slide" data-part="p5" data-page="16" aria-label="实施路线">
+      <header class="slide-head">
+        <p class="kicker" data-anim><span class="kicker-line"></span>经验与启示 / 实施建议</p>
+        <h2 class="slide-title" data-anim>从一条产品线开始，逐步形成可复用经验</h2>
+        <p class="lede" data-anim>先跑通一个闭环，再谈规模推广。</p>
+      </header>
+      <div class="road-wrap">
+        <ol class="road">
+        <li data-anim style="--step:0">
+          <div class="road-body">
+            <span class="road-no">01</span>
+            <h3>诊断</h3>
+            <p>梳理跨部门问题，建立数据与版本基线</p>
+            <em>牵头：项目管理与质量团队</em>
+          </div>
+        </li>
+        <li data-anim style="--step:1">
+          <div class="road-body">
+            <span class="road-no">02</span>
+            <h3>试点</h3>
+            <p>选择一条产品线，连接评审、变更与售后</p>
+            <em>牵头：研发、制造与售后</em>
+          </div>
+        </li>
+        <li data-anim style="--step:2">
+          <div class="road-body">
+            <span class="road-no">03</span>
+            <h3>推广</h3>
+            <p>固化适用条件与责任，扩展复用并检查复发</p>
+            <em>牵头：平台与业务负责人</em>
+          </div>
+        </li>
+      </ol>
+      <p class="road-quote" data-anim>对于资源较少的企业，小范围跑通一个闭环，比一次建设庞大系统更可实施。</p>
+      </div>
+      <div class="accept" data-anim><span>验收重点</span><p>风险关闭证据完整，同类问题持续减少。</p><em>周期与改进目标应结合真实基线制定</em></div>
+    </section>
+
+    <!-- 17 结论（深色） -->
+    <section class="slide slide--dark slide--conclusion" data-part="p5" data-page="17" aria-label="结论">
+      <div class="cover-bg"><img src="img/road.jpg" alt="公路与远山概念插图"></div>
+      <div class="conclusion-inner">
+        <p class="kicker kicker--light" data-anim><span class="kicker-line"></span>结论 / 可迁移的创新管理经验</p>
+        <h2 class="conclusion-title" data-anim>长期能力积累<br>与跨环节协同</h2>
+        <p class="conclusion-sub" data-anim>从用户问题出发，让技术、组织和过程共同创造价值。</p>
+        <ol class="principles">
+          <li data-anim><b>01</b><h3>积累关键能力</h3><p>在最影响客户价值的领域形成优势，再通过合作补充其他能力。</p></li>
+          <li data-anim><b>02</b><h3>连接研发、制造与反馈</h3><p>让接口、验证与问题关闭在同一套证据上运行。</p></li>
+          <li data-anim><b>03</b><h3>用经营证据修正方向</h3><p>创新管理的成熟，也表现在发现偏差后能及时调整。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 18 资料与分工 -->
+    <section class="slide" data-part="p5" data-page="18" aria-label="资料与分工">
+      <div class="sources-grid">
+        <div class="sources-left">
+          <p class="kicker" data-anim><span class="kicker-line"></span>资料依据 / 小组分工</p>
+          <h2 class="slide-title slide-title--sm" data-anim>感谢聆听，欢迎讨论</h2>
+          <ol class="refs">
+            <li data-anim><b>[1][2]</b><span>比亚迪 2025、2024 年年度报告</span></li>
+            <li data-anim><b>[5]</b><span>比亚迪 2021 年社会责任报告（刀片电池）</span></li>
+            <li data-anim><b>[6]</b><span>BYD 第五代DM官方发布</span></li>
+            <li data-anim><b>[7]</b><span>丰田 bZ3 官方发布，2022-10-24</span></li>
+            <li data-anim><b>[8]</b><span>市场监管总局召回公告，2024-09-29</span></li>
+          </ol>
+          <p class="src" data-anim>完整链接、理论文献与页码见书面报告。核查日期：2026年10月25日。</p>
+          <div class="site-link" data-anim>
+            <span>完整网站汇报</span>
+            <a href="index.html" target="_blank" rel="noopener">byd-innovation-atlas</a>
+            <em>交互三维场景与逐页讲稿均可在网页中查看</em>
+          </div>
+        </div>
+        <div class="team" data-anim>
+          <p class="team-head"><span>小组</span><b>砺行</b><span>班级</span><b>______</b></p>
+          <table class="team-table">
+            <thead><tr><th>姓名</th><th>学号</th><th>实际分工</th></tr></thead>
+            <tbody>
+              <tr><td>孙德鑫<em>组长</em></td><td>20244684</td><td>统筹与定稿；研究框架、经营数据核校；主讲 01—09 页</td></tr>
+              <tr><td>郭旭泽</td><td>20244725</td><td>三维场景与网站实现；PPT 图表与动画；主讲 10—13 页</td></tr>
+              <tr><td>阿布里米提·玉素甫</td><td>20241883</td><td>资料整理与案例写作；讲稿与答辩；主讲 14—18 页</td></tr>
+            </tbody>
+          </table>
+          <p class="team-note">年级与班级由小组补充；姓名、学号与实际分工已按组内安排填写。</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="foot">
+    <div id="ticks" aria-hidden="true"></div>
+    <div class="foot-right">
+      <span id="foot-hint">← → 翻页 · F 全屏 · N 讲稿 · O 目录</span>
+      <button id="prev" aria-label="上一页">‹</button>
+      <button id="next" aria-label="下一页">›</button>
+    </div>
+  </footer>
+</div>
+
+<div id="scrim"></div>
+
+<aside id="notes" aria-label="逐页讲稿" aria-hidden="true">
+  <div class="notes-head">
+    <p class="notes-eyebrow">逐页讲稿 · <span id="notes-n">01</span></p>
+    <button id="notes-close" aria-label="关闭讲稿">×</button>
+  </div>
+  <p id="notes-kicker" class="notes-kicker"></p>
+  <h2 id="notes-title"></h2>
+  <p id="notes-time" class="notes-time"></p>
+  <div id="notes-body" class="notes-body"></div>
+  <p class="notes-foot">讲稿按画面展开顺序编写：页面展开结束后继续讲述，讲完再翻页。</p>
+</aside>
+
+<section id="toc" aria-label="目录" aria-hidden="true">
+  <div class="toc-head">
+    <div><p class="notes-eyebrow">完整汇报 · 18 页</p><h2>目录</h2></div>
+    <button id="toc-close" aria-label="关闭目录">×</button>
+  </div>
+  <div id="toc-grid" class="toc-grid"></div>
+</section>
+
+<div id="help" aria-label="快捷键">
+  <h2>演示操作</h2>
+  <dl>
+    <div><dt>← → / 空格</dt><dd>上一页 / 下一页</dd></div>
+    <div><dt>F</dt><dd>一键全屏</dd></div>
+    <div><dt>N</dt><dd>逐页讲稿</dd></div>
+    <div><dt>O</dt><dd>目录</dd></div>
+    <div><dt>Esc</dt><dd>关闭面板 / 退出模型操作</dd></div>
+    <div><dt>模型内</dt><dd>拖动旋转 · 滚轮缩放 · 点击部件；方向键逐步查看，空格播放，R 重置</dd></div>
+  </dl>
+  <p>三维场景用于课堂讲解，可在对应页直接操作；PPT 版本使用同一场景的关键视角与拆解帧。</p>
+  <button id="help-close">知道了</button>
+</div>
+
+<div id="scene-modal" hidden>
+  <div class="modal-head">
+    <div><h2 id="scene-modal-title"></h2><p id="scene-modal-note"></p></div>
+    <button id="scene-close" aria-label="关闭放大视图">×</button>
+  </div>
+  <div id="scene-stage"></div>
+</div>
+
+<script type="module" src="assets/js/deck.js"></script>
+</body>
+</html>
